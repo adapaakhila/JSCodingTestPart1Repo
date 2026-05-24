@@ -1,0 +1,27 @@
+function summarizeJsBasicsMatrix(matrix) {
+const summary = { total: 0, passed: 0, failed: 0, failedCases: [] };
+  const flatResults = matrix.flat();
+
+  summary.total = flatResults.length;
+
+  for (const result of flatResults) {
+    const lower = result.toLowerCase();
+    
+    if (lower.includes("pass")) {
+      summary.passed++;
+    } else if (lower.includes("fail")) {
+      summary.failed++;
+      summary.failedCases.push(result);
+    }
+  }
+
+  return summary;
+}
+
+// Verification Test Cases:
+console.log(summarizeJsBasicsMatrix([["login-pass"], ["checkout-fail"]]));
+// Output: { total: 2, passed: 1, failed: 1, failedCases: [ 'checkout-fail' ] }
+
+console.log(summarizeJsBasicsMatrix([["a-pass", "b-pass"], ["c-pass"]]));
+// Output: { total: 3, passed: 3, failed: 0, failedCases: [] }
+Use code with caution.Why this structure works:.flat(): Flatten
