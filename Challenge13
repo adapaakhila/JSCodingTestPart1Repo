@@ -1,0 +1,11 @@
+function checkJsBasicsReadinessGate(hasSetup, hasPractice, hasNotes) {
+  if (hasSetup === true && hasPractice === true && hasNotes === true) {
+    return "READY";
+  }
+  return "BLOCKED";
+}
+
+// Verification Test Cases:
+console.log(checkJsBasicsReadinessGate(true, true, true));    // "READY"
+console.log(checkJsBasicsReadinessGate(true, false, true));   // "BLOCKED"
+console.log(checkJsBasicsReadinessGate("true", true, true));  // "BLOCKED"
