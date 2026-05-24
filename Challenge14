@@ -1,0 +1,22 @@
+function buildJsBasicsChecklist(items) {
+  let counter = 1;
+  const checklist = [];
+
+  for (const task of items) {
+    const cleanTask = task.trim();
+
+    if (cleanTask !== "") {
+      checklist.push(`${counter}. ${cleanTask} - TODO`);
+      counter++;
+    }
+  }
+
+  return checklist;
+}
+
+// Verification Test Cases:
+console.log(buildJsBasicsChecklist(["Install Node", "Create GitHub repo"]));
+// Output: ["1. Install Node - TODO", "2. Create GitHub repo - TODO"]
+
+console.log(buildJsBasicsChecklist(["Practice switch", " ", "Push code"]));
+// Output: ["1. Practice switch - TODO", "2. Push code - TODO"]
