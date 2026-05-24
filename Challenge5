@@ -1,0 +1,35 @@
+function filterSupportedJsBasicsTopics(topics) {
+  // Map both the canonical terms and their known aliases to the canonical keys
+  const aliasMap = {
+    "node": "node",
+    "runtime": "node",
+    "v8": "v8",
+    "engine": "v8",
+    "npm": "npm",
+    "package-manager": "npm"
+  };
+
+  const uniqueCanonicalTopics = new Set();
+
+  for (const item of topics) {
+    const normalized = item.trim().toLowerCase();
+    
+    // If the normalized item or alias is supported, add its canonical key
+    if (aliasMap.hasOwnProperty(normalized)) {
+      uniqueCanonicalTopics.add(aliasMap[normalized]);
+    }
+  }
+
+  // Convert the Set back to an array to preserve first-seen order
+  return Array.from(uniqueCanonicalTopics);
+}
+
+// Verification Test Cases:
+console.log(filterSupportedJsBasicsTopics(["NODE", " v8 ", "unknown"])); 
+// Output: ["node", "v8"]
+
+console.log(filterSupportedJsBasicsTopics(["node", "runtime", "node"])); 
+// Output: ["node"]
+
+console.log(filterSupportedJsBasicsTopics(["npm", "node", "v8"])); 
+// Output: ["npm", "node", "v8"]
