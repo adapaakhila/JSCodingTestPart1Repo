@@ -1,0 +1,21 @@
+function createUniqueJsBasicsTags(tags) {
+  const uniqueTags = new Set();
+
+  for (const tag of tags) {
+    const normalized = tag.trim().toLowerCase();
+    
+    // Only add if the string is not empty
+    if (normalized !== "") {
+      uniqueTags.add(normalized);
+    }
+  }
+
+  return Array.from(uniqueTags);
+}
+
+// Verification Test Cases:
+console.log(createUniqueJsBasicsTags([" Smoke ", "smoke", "Regression"]));
+// Output: ["smoke", "regression"]
+
+console.log(createUniqueJsBasicsTags(["", " API ", " ", "api"]));
+// Output: ["api"]
