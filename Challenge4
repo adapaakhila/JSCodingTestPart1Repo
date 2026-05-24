@@ -1,0 +1,16 @@
+function getJsBasicsKeywordMeaning(keyword) {
+  const dictionary = {
+    "node": "runtime",
+    "v8": "engine",
+    "npm": "package-manager"
+  };
+
+  const normalized = keyword.trim().toLowerCase();
+  return dictionary[normalized] || "unknown";
+}
+
+// Verification Test Cases:
+console.log(getJsBasicsKeywordMeaning("NODE"));        // "runtime"
+console.log(getJsBasicsKeywordMeaning(" v8 "));       // "engine"
+console.log(getJsBasicsKeywordMeaning("npm"));         // "package-manager"
+console.log(getJsBasicsKeywordMeaning("not-a-topic")); // "unknown"
