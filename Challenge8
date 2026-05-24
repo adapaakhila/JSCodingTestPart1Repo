@@ -1,0 +1,17 @@
+function mergeJsBasicsConfig(defaultConfig, overrideConfig) {
+  return {
+    retries: 0,
+    ...defaultConfig,
+    ...overrideConfig
+  };
+}
+
+// Verification Test Cases:
+console.log(mergeJsBasicsConfig({"retries":1,"env":"dev"}, {"retries":3}));
+// Output: {"retries":3,"env":"dev"}
+
+console.log(mergeJsBasicsConfig({"env":"qa"}, {"timeout":5000}));
+// Output: {"env":"qa","timeout":5000,"retries":0}
+
+console.log(mergeJsBasicsConfig({"env":"dev","retries":2}, {"env":"stage"}));
+// Output: {"env":"stage","retries":2}
