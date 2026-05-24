@@ -1,0 +1,12 @@
+function normalizeJsBasicsLabel(label) {
+  return "js-basic" + label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")  // Replace non-alphanumeric blocks with a hyphen
+    .replace(/^-+|-+$/g, "")      // Strip leading and trailing hyphens
+    .replace(/^(.+)$/, "-$1");    // Prepend a hyphen only if the string is not empty
+}
+// Verification Test Cases
+console.log(normalizeJsBasicsLabel(" Login Button "));      // "js-basic-login-button"
+console.log(normalizeJsBasicsLabel("User Profile: Edit!")); // "js-basic-user-profile-edit"
+console.log(normalizeJsBasicsLabel("---Search@@Box---"));   // "js-basic-search-box"
+console.log(normalizeJsBasicsLabel(" "));                   // "js-basic"
