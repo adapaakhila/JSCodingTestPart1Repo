@@ -1,0 +1,8 @@
+function calculateJsBasicsWeightedScore(passed, failed, skipped) {
+  return (passed * 2) - (failed * 1) + (skipped * 0);
+}
+
+// Verification Test Cases:
+console.log(calculateJsBasicsWeightedScore(5, 2, 1)); // 8
+console.log(calculateJsBasicsWeightedScore(3, 0, 0)); // 6
+console.log(calculateJsBasicsWeightedScore(1, 4, 3)); // -2
