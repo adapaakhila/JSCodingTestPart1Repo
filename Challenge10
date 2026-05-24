@@ -1,0 +1,16 @@
+function findFirstCriticalJsBasicsBug(bugs) {
+  const criticalBug = bugs.find(bug => bug.severity === "critical");
+  return criticalBug ? criticalBug.title : "No critical bug";
+}
+
+// Verification Test Cases:
+console.log(findFirstCriticalJsBasicsBug([
+  {"title": "Typo", "severity": "low"},
+  {"title": "Login crash", "severity": "critical"}
+]));
+// Output: "Login crash"
+
+console.log(findFirstCriticalJsBasicsBug([
+  {"title": "Spacing issue", "severity": "low"}
+]));
+// Output: "No critical bug"
