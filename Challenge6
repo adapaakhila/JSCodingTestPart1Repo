@@ -1,0 +1,8 @@
+function countPassingResults(results) {
+  return results.filter(item => /pass/i.test(item)).length;
+}
+
+// Example usage:
+const checkResults = ["Pass", "failed", "PASS - test 1", "Passed validation", "error"];
+console.log(countPassingResults(checkResults)); 
+// Output: 3
